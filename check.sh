@@ -30,7 +30,8 @@ do
             if [ ! -f "$result" ] # 检查有没有 Diff doc
             then
                 pass=0 # 缺少输出文件，检查失败
-            if diff -u "$file" "$file2" | cmp -s - "$result"
+            else
+                if diff -u "$file" "$file2" | cmp -s - "$result"
                 then
                     : #比较结果正确，无操作
                 else
