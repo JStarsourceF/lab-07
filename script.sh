@@ -8,7 +8,7 @@ do #start
         name="${file%.1.txt}" #dele .1.txt
         file2="${name}.2.txt" #creat second file
 
-        if diff -u "$file" "$file2" #compare the files
+        if cmp -s "$file" "$file2" #compare the files
         then #if same, diff return 0 
             :
         else #if not same do else
