@@ -31,7 +31,7 @@ do
             then
                 pass=0 # 缺少输出文件，检查失败
             else
-                if diff -u "$file" "$file2" | cmp -s - "$result"
+                if (cd "$folder" && diff -u "${file##*/}" "${file2##*/}") | cmp -s - "$result"
                 then
                     : #比较结果正确，无操作
                 else
