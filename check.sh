@@ -33,7 +33,7 @@ do
             else
                 
                 if cmp -s <(diff -u "$file" "$file2" | tail -n +3) <(tail -n +3 "$result")
-
+                then
                     : #比较结果正确，无操作
                 else
                     pass=0 #不正确
